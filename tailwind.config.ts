@@ -63,7 +63,7 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// Custom Harry Potter theme colors
+				// Custom Harry Potter theme colors - adjusted for better contrast
 				hogwarts: {
 					'purple': '#6E59A5',
 					'gold': '#D4AF37',
@@ -105,7 +105,7 @@ export default {
 				'sparkle': 'sparkle 2s ease-in-out infinite',
 			},
 			backgroundImage: {
-				'hero-pattern': "url('https://images.unsplash.com/photo-1470813740244-df37b8c1edcb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80')",
+				'hero-pattern': "url('/images/hero-bg.webp')",
 			}
 		}
 	},

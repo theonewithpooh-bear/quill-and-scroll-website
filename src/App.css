@@ -1,42 +1,47 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+
+/* Only keeping essential styles and removing redundant ones since we're using Tailwind */
+
+/* Custom magic button effect - can be reused with the magic-btn class */
+.magic-btn {
+  background: linear-gradient(135deg, #D4AF37 0%, #6E59A5 100%);
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  transition: all 0.3s ease;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.magic-btn:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #6E59A5 0%, #D4AF37 100%);
+  transition: all 0.4s ease-in-out;
+  z-index: -1;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.magic-btn:hover:before {
+  left: 0;
 }
 
-.card {
-  padding: 2em;
+/* Sparkle effect for navigation links */
+.sparkle-effect {
+  position: relative;
+  display: inline-block;
 }
 
-.read-the-docs {
-  color: #888;
+.sparkle-effect:hover:after {
+  content: '✨';
+  position: absolute;
+  font-size: 0.5em;
+  top: -0.5em;
+  right: -0.5em;
+  animation: sparkle 1s infinite;
+}
+
+@keyframes sparkle {
+  0%, 100% { opacity: 0; transform: scale(0.5); }
+  50% { opacity: 1; transform: scale(1); }
 }

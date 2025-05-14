@@ -1,9 +1,12 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { BookOpen, Star } from "lucide-react";
+import FirstChapterModal from "@/components/FirstChapterModal";
 
 const BookDetails = () => {
+  const [chapterOpen, setChapterOpen] = useState(false);
+
   return (
     <section id="book" className="py-20 bg-gradient-to-b from-hogwarts-midnight to-hogwarts-purple/90">
       <div className="container">
@@ -20,9 +23,10 @@ const BookDetails = () => {
             <div className="absolute -inset-1 bg-gradient-to-r from-hogwarts-gold to-hogwarts-purple rounded-lg blur opacity-20 group-hover:opacity-40 transition duration-1000"></div>
             <div className="relative aspect-[2/3] max-w-sm mx-auto overflow-hidden rounded-lg shadow-2xl shadow-hogwarts-purple/50">
               <img 
-                src="https://images.unsplash.com/photo-1500673922987-e212871fec22?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" 
+                src="/images/book-cover.webp" 
                 alt="Harry Potter: The Enchanted Legacy Book Cover" 
                 className="w-full h-full object-cover"
+                loading="eager"
               />
               
               <div className="absolute inset-0 bg-gradient-to-t from-hogwarts-midnight/90 to-transparent flex items-end">
@@ -77,7 +81,10 @@ const BookDetails = () => {
               </div>
               
               <div className="pt-8">
-                <Button className="magic-btn flex items-center gap-2">
+                <Button 
+                  className="magic-btn flex items-center gap-2"
+                  onClick={() => setChapterOpen(true)}
+                >
                   <BookOpen className="w-5 h-5" /> Read First Chapter
                 </Button>
               </div>
@@ -85,6 +92,8 @@ const BookDetails = () => {
           </div>
         </div>
       </div>
+
+      <FirstChapterModal open={chapterOpen} onOpenChange={setChapterOpen} />
     </section>
   );
 };

@@ -7,22 +7,25 @@ const characters = [
     id: 1,
     name: "Harry Potter",
     role: "Head of Magical Law Enforcement",
-    description: "Now in his forties, Harry leads the wizarding world's law enforcement while mentoring the next generation of wizards.",
-    image: "https://images.unsplash.com/photo-1472396961693-142e6e269027?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+    description: "Now in his forties, Harry leads the wizarding world's law enforcement while mentoring the next generation of wizards. Though the scar on his forehead has faded to a thin line, the memories of his past battles still haunt him, especially as new threats emerge that seem connected to his own history.",
+    image: "/images/character-harry.webp",
+    quote: "Magic is not just about power; it's about the responsibility we have to those we protect.",
   },
   {
     id: 2,
     name: "Lila Nightshade",
     role: "Mysterious Newcomer",
-    description: "A powerful witch with unknown intentions whose appearance coincides with strange magical anomalies.",
-    image: "https://images.unsplash.com/photo-1500673922987-e212871fec22?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+    description: "A powerful witch whose sudden appearance coincides with strange magical anomalies across Britain. Her exceptional abilities and knowledge of ancient magic raise questions about her true identity and intentions. Some believe she may hold the key to unlocking secrets that were meant to remain buried.",
+    image: "/images/character-lila.webp",
+    quote: "The old magic never truly disappeared; it merely waited for those worthy to wield it once more.",
   },
   {
     id: 3,
     name: "Albus Potter",
     role: "Young Wizard",
-    description: "Harry's son finds himself caught between his father's legacy and a new magical conspiracy threatening their world.",
-    image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+    description: "Harry's middle child finds himself caught between his father's overwhelming legacy and his own desire to forge a unique path. When he discovers an ancient artifact that responds only to his touch, Albus must decide whether to embrace his birthright or continue to resist it.",
+    image: "/images/character-albus.webp",
+    quote: "Everyone expects me to be exactly like my father, but what if I'm meant to be something else entirely?",
   }
 ];
 
@@ -77,6 +80,7 @@ const CharacterSpotlights = () => {
                   src={character.image} 
                   alt={character.name} 
                   className="w-full h-full object-cover"
+                  loading="lazy"
                 />
               </div>
             </div>
@@ -86,13 +90,8 @@ const CharacterSpotlights = () => {
               <p className="text-xl text-white/80 mb-6">{character.role}</p>
               <div className="prose prose-lg text-white/80">
                 <p>{character.description}</p>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae 
-                  vestibulum vestibulum. Cras porttitor augue at velit tempus, id tincidunt ipsum 
-                  molestie. Duis imperdiet risus nec enim gravida dignissim.
-                </p>
-                <p>
-                  "Magic is not just about power; it's about understanding the connections between all living things."
+                <p className="mt-6 italic">
+                  "{character.quote}"
                 </p>
               </div>
             </div>

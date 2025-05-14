@@ -9,7 +9,11 @@ const Footer = () => {
         <div className="grid md:grid-cols-4 gap-8">
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <img src="/placeholder.svg" alt="Harry Potter Logo" className="w-8 h-8" />
+              <img 
+                src="/images/hp-logo.svg" 
+                alt="Harry Potter: The Enchanted Legacy Logo" 
+                className="w-8 h-8" 
+              />
               <span className="text-lg font-serif font-bold text-hogwarts-gold">The Enchanted Legacy</span>
             </div>
             <p className="text-white/70 mb-4">
@@ -86,6 +90,7 @@ const SocialIcon = ({ children }: { children: React.ReactNode }) => {
     <a 
       href="#" 
       className="w-10 h-10 flex items-center justify-center rounded-full bg-white/10 text-white hover:bg-hogwarts-gold hover:text-hogwarts-midnight transition-colors"
+      aria-label="Social media"
     >
       {children}
     </a>

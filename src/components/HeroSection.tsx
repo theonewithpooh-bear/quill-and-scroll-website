@@ -1,9 +1,11 @@
 
 import { Button } from "@/components/ui/button";
 import { useState, useEffect } from "react";
+import TrailerModal from "@/components/TrailerModal";
 
 const HeroSection = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [trailerOpen, setTrailerOpen] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -55,7 +57,11 @@ const HeroSection = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <Button className="magic-btn text-lg">Pre-Order Now</Button>
-            <Button variant="outline" className="bg-transparent border-hogwarts-gold text-hogwarts-gold hover:bg-hogwarts-gold/10 text-lg">
+            <Button 
+              variant="outline" 
+              className="bg-transparent border-hogwarts-gold text-hogwarts-gold hover:bg-hogwarts-gold/10 text-lg"
+              onClick={() => setTrailerOpen(true)}
+            >
               Watch Trailer
             </Button>
           </div>
@@ -63,12 +69,14 @@ const HeroSection = () => {
       </div>
       
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-        <a href="#book" className="text-white/70 hover:text-white transition-colors">
+        <a href="#book" className="text-white/70 hover:text-white transition-colors" aria-label="Scroll to book section">
           <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
           </svg>
         </a>
       </div>
+
+      <TrailerModal open={trailerOpen} onOpenChange={setTrailerOpen} />
     </section>
   );
 };
